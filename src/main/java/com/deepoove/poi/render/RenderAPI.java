@@ -34,6 +34,7 @@ import com.deepoove.poi.config.Name;
 import com.deepoove.poi.data.TextRenderData;
 import com.deepoove.poi.exception.RenderException;
 import com.deepoove.poi.policy.DocxRenderPolicy;
+import com.deepoove.poi.policy.ObjectRenderPolicy;
 import com.deepoove.poi.policy.RenderPolicy;
 import com.deepoove.poi.template.ElementTemplate;
 
@@ -122,7 +123,13 @@ public class RenderAPI {
 			    docxNum++;
 			    continue;
 			}
-			policy.render(runTemplate, datas.get(runTemplate.getTagName()), template);
+			if (policy instanceof ObjectRenderPolicy) {
+				//dataMap key
+				String tagName = runTemplate.getTagName();
+				policy.render(runTemplate, datas.get(tagName.substring(0,tagName.indexOf('.'))), template);
+			}else{
+				policy.render(runTemplate, datas.get(runTemplate.getTagName()), template);
+			}
 		}
 		try {
 		    if (docxNum >= 1) template.reload(template.getXWPFDocument().generate());

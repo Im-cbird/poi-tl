@@ -22,6 +22,7 @@ import java.util.Set;
 
 import com.deepoove.poi.policy.DocxRenderPolicy;
 import com.deepoove.poi.policy.NumbericRenderPolicy;
+import com.deepoove.poi.policy.ObjectRenderPolicy;
 import com.deepoove.poi.policy.PictureRenderPolicy;
 import com.deepoove.poi.policy.RenderPolicy;
 import com.deepoove.poi.policy.SimpleTableRenderPolicy;
@@ -50,6 +51,7 @@ public class Configure {
 		plugin(GramerSymbol.TABLE.getSymbol(), new SimpleTableRenderPolicy());
 		plugin(GramerSymbol.NUMBERIC.getSymbol(), new NumbericRenderPolicy());
 		plugin(GramerSymbol.DOCX_TEMPLATE.getSymbol(), new DocxRenderPolicy());
+		plugin(GramerSymbol.OBJ.getSymbol(), new ObjectRenderPolicy());
 	}
 	
 	/**
