@@ -85,7 +85,7 @@ public class ObjectRenderData implements RenderData {
 					logger.error("no such field: {}.{}",c.getName(),fieldName);
 				}
 			} catch (Exception e) {
-				logger.error("getFieldVal error: {}.{}",c.getName(),fieldName);
+				logger.error("get field val error: {}.{}",c.getName(),fieldName);
 			}
 		}
 
